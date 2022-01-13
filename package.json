@@ -24,8 +24,14 @@
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
+    "docker": "^1.0.0",
     "eslint-plugin-jest": "^25.3.4",
     "jest": "^27.4.7",
+    "knex": "^0.95.15",
+    "mysql": "^2.18.1",
+    "redis": "^4.0.1",
+    "restify": "^8.6.0",
+    "swagger-restify": "^1.0.1",
     "ts-jest": "^27.1.2"
   }
 }
