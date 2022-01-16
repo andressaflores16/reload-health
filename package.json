@@ -26,6 +26,7 @@
     "migration:run": "knex migrate:latest"
   },
   "dependencies": {
+    "@types/uuid": "^8.3.4",
     "docker": "^1.0.0",
     "dotenv": "^11.0.0",
     "eslint-plugin-jest": "^25.3.4",
@@ -35,6 +36,7 @@
     "redis": "^4.0.1",
     "restify": "^8.6.0",
     "swagger-restify": "^1.0.1",
-    "ts-jest": "^27.1.2"
+    "ts-jest": "^27.1.2",
+    "uuid": "^8.3.2"
   }
 }

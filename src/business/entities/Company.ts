@@ -3,7 +3,7 @@ import { Contributor } from "./Contributor";
 export class Company {
   constructor(
     private id: string,
-    private bussinessName: string,
+    private business_name: string,
     private suffix: string,
     private industry: string,
     private catch_phrase: string,
@@ -22,7 +22,7 @@ export class Company {
   }
 
   public getName(): string {
-    return this.bussinessName;
+    return this.business_name;
   }
 
   public getSuffix(): string {

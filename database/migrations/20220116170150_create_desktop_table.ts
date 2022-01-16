@@ -3,7 +3,7 @@ import { Knex } from "knex";
 
 export async function up(knex: Knex): Promise<void> {
     await knex.schema.createTable('desktops', (table) => {
-        table.integer('id')
+        table.uuid('id').primary()
         table.string('platform')
         table.string('type')
         table.string('os')

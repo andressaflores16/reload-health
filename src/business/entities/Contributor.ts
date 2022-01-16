@@ -1,10 +1,10 @@
 export class Contributor {
     constructor(
         private id: string,
-        private firstName: string,
-        private lastName: string,
+        private first_name: string,
+        private last_name: string,
         private title: string,
-        private jobTitle: string,
+        private job_title: string,
         private age: number,
     ) {}
     
@@ -13,11 +13,11 @@ export class Contributor {
     }
 
     public getFirstName(): string {
-        return this.firstName
+        return this.first_name
     }
 
     public getLastName(): string {
-        return this.lastName
+        return this.last_name
     }
 
     public getTitle(): string {
@@ -25,7 +25,7 @@ export class Contributor {
     }
 
     public getJobTitle(): string {
-        return this.jobTitle
+        return this.job_title
     }
 
     public getAge(): number {
