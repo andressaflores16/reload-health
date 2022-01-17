@@ -7,7 +7,7 @@ import { DesktopDB } from '../../../data/desktopDB';
 
 export const GetCompanyByIdEndpoint = async (req: Request, res: Response) => {
   try {
-    const uc = new GetCompanyByIdUC(new CompanyDB(), new ContributorDB(), new DesktopDB());
+    const uc = new GetCompanyByIdUC(CompanyDB.getInstance(), ContributorDB.getInstance(), DesktopDB.getInstance());
 
     const result = await uc.execute({
       id: req.params.id,

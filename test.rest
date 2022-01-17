@@ -3,3 +3,6 @@
 
 ### Get Company by Id
 GET {{URL}}/companies/00053fc3-9679-4e90-8e7a-6da688e41c48
+
+### Get Company By Name
+GET {{URL}}/companies-by-name?name=Kling - Von
