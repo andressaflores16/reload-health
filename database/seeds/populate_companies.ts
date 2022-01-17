@@ -5,11 +5,15 @@ import { v4 as uuidv4 } from 'uuid';
 
 const companies = data as Company[];
 
-export async function seed(knex: Knex): Promise<void> {
+export async function seed(knex: Knex): Promise<any> {
   const queryBuilders = companies.map((company) => {
     return createCompany(company, knex);
   });
-  await Promise.all([knex('companies').del(), ...queryBuilders]);
+  // return knex('contributors').truncate().then(() => {
+  //   return knex('companies').truncate()
+  // }).then(() => {
+    return Promise.all(queryBuilders);
+  // })
 }
 
 const createCompany = async (company: Company, knex: Knex) => {
@@ -26,11 +30,12 @@ const createCompany = async (company: Company, knex: Knex) => {
     latitude,
     longitude,
     contributors,
+    desktops
   } = company;
-  const id: string = uuidv4()
+  const company_id: string = uuidv4()
   
   const companyPromise = knex('companies').insert({
-    id,
+    id: company_id,
     business_name,
     suffix,
     industry,
@@ -44,11 +49,19 @@ const createCompany = async (company: Company, knex: Knex) => {
     longitude,
   });
 
-  const contributorPromises = contributors.map((contributor) => {
-    return createContributor(contributor, knex, id);
+  const contributorPromises = contributors.map(contributor => {
+    return createContributor(contributor, knex, company_id);
   });
 
-  return [companyPromise, ...contributorPromises];
+  const desktopPromises = desktops.map(desktop => {
+    return createDesktop(desktop, knex, company_id)
+  });
+
+  return companyPromise.then(() => {
+    return Promise.all(contributorPromises)
+  }).then(() => {
+    return Promise.all(desktopPromises)
+  })
 };
 
 const createContributor = async (
@@ -68,4 +81,14 @@ const createContributor = async (
     age,
     company_id,
   });
-};
+}
+
+const createDesktop = async (desktop: Desktop, knex: Knex, company_id: string) => {
+  const { platform, type, os, ip } = desktop;
+  const id: string = uuidv4()
+
+  await knex('desktops').insert({
+    id, platform, type, os, ip, company_id
+  })
+}
+

@@ -1,4 +1,4 @@
-import { Contributor } from "./Contributor";
+import { Contributor, Desktop } from ".";
 
 export interface Company {
     id: number
@@ -14,4 +14,5 @@ export interface Company {
     latitude: string
     longitude: string
     contributors: Array<Contributor>
+    desktops: Array<Desktop>
 }

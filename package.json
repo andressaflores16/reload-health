@@ -23,7 +23,8 @@
     "start:dev": "nodemon",
     "start": "yarn build && node build/index.js",
     "lint": "eslint . --ext .ts",
-    "migration:run": "knex migrate:latest"
+    "migration:run": "knex migrate:latest",
+    "seed:run": "knex seed:run"
   },
   "dependencies": {
     "@types/uuid": "^8.3.4",

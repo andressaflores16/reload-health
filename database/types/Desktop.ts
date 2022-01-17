@@ -1,5 +1,5 @@
 export interface Desktop {
-    id: string
+    id: number
     platform: string
     type: string
     os: string
