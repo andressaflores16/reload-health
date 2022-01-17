@@ -1,3 +1,4 @@
+import { Desktop } from ".";
 import { Contributor } from "./Contributor";
 
 export class Company {
@@ -14,7 +15,8 @@ export class Company {
     private full_address: string,
     private latitude: string,
     private longitude: string,
-    private contributors: Array<Contributor>,
+    private contributors: Contributor[],
+    private desktops: Desktop[]
   ) {}
 
   public getId(): string {
@@ -65,8 +67,20 @@ export class Company {
     return this.longitude
   }
 
-  public getContributors(): Array<Contributor> {
+  public getContributors(): Contributor[] {
     return this.contributors
+  }
+
+  public setContributors(contributors: Contributor[]): void  {
+    this.contributors = contributors
+  }
+
+  public getDesktops(): Desktop[] {
+    return this.desktops;
+  }
+
+  public setDesktops(desktops: Desktop[]): void  {
+    this.desktops = desktops;
   }
 
 }

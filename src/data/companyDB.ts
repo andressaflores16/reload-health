@@ -16,7 +16,7 @@ export class CompanyDB extends BaseDB {
 
     return new Company(
       id,
-      result[0].businessName,
+      result[0].business_name,
       result[0].suffix,
       result[0].industry,
       result[0].catch_phrase,
@@ -27,7 +27,8 @@ export class CompanyDB extends BaseDB {
       result[0].full_address,
       result[0].latitude,
       result[0].longitude,
-      result[0].contributors,
+      [],
+      []
     );
   }
 
